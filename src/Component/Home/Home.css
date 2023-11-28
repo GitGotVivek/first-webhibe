@@ -1,0 +1,109 @@
+.form{
+    padding: 20px;
+}
+
+ .form .formInput .input{
+    cursor: pointer;
+ }
+ .form .formInput .input:hover{
+    border: 1px solid #28a745;
+ }
+
+ .form-control:focus{
+    border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+ } 
+
+.formHead{
+    text-align: left;
+}
+
+.catagoryLabel{
+    font-weight: bold;
+    margin-left: -17.5em;
+    margin-bottom: 10px;
+    
+}
+
+.subCatagoryLabel{
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: -16em;
+}
+
+.bussinessLabel{
+    font-weight: bold;
+    position: relative;
+    left: -44.5%;
+    margin-top: 25px;
+}
+
+.cityLabel{
+    font-weight: bold;
+    position: relative;
+    left: -46.5%;
+    margin-top: 25px;
+    
+}
+
+.productNameLabel{
+    font-weight: bold;
+    position: relative;
+    left: -41.5%;
+    margin-top: 25px;
+    
+}
+
+.productPriceLabel{
+    font-weight: bold;
+    position: relative;
+    left: -41.5%;
+    margin-top: 10px;
+
+}
+
+.radioLabel{
+    text-align: left;    
+}
+
+.radioLabel .input{
+    margin-left: 15px;
+}
+
+.radioHeading{
+    font-weight: bold;
+}
+
+.checkLabel{
+    text-align: left;  
+    margin-top: 20px;  
+}
+
+.checkLabel .check{
+    margin-left: 15px;
+}
+
+.radioColor{
+    accent-color: #28a745;
+}
+
+.checkColor{
+    accent-color: #28a745;
+}
+
+.button{
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #236d34;
+    /* border-color: #28a745; */
+    width: 200px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.button:hover{
+    border-color: #28a745;
+    color: #236d34;
+    /* background-color: #236d34; */
+}

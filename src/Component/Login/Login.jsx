@@ -9,11 +9,10 @@ const Login = () => {
   const [cpassword, setCpassword] = useState("");
 
   // var cEmaivalidate() = email;
-  var cPass = password;
+  // var cPass = password;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const isEmail = emailRegex.test(email);
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const isValidPassword = passwordRegex.test(password);
   const [formError, setFormError] = useState({});
   const [check, setCheck] = useState(false);
@@ -71,7 +70,6 @@ const Login = () => {
     }else{
       console.log("error")
     }
-
     // let obj={}
 //     let obj={name:"vivek"}
 //     if(obj){
@@ -169,7 +167,7 @@ const Login = () => {
                 color: "red",
                 position: "absolute",
                 marginTop: "20px",
-                left: "38%",
+                left: "43%",
               }}
             >
               {formError.check}
