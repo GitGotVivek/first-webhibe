@@ -39,6 +39,12 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/product">
+                ProductTable
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

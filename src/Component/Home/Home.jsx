@@ -1,14 +1,15 @@
 import toast, { Toaster } from "react-hot-toast";
 import React, { useState } from "react";
-import "./Home.css";
-import Navbar from "../Navbar/Navbar";
-
+import "./Home.css"; 
+import { useNavigate } from "react-router-dom"; 
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../Redux/Slice/FormSlice";
 const Home = () => {
-  // const initData = {
-
-  // }
-  //  const [formdata, setFormData] = useState(initData)
+  
+  
+  const navigate = useNavigate();
   const [formError, setFormError] = useState({});
+  const dispatch=useDispatch();
 
   const [formData, setFormData] = useState({
     catagory: "",
@@ -21,8 +22,33 @@ const Home = () => {
     checkboxes: []
   });
 
+  // ChatGPT Logic For Handling Multiple CheckBoxes Value
+  const checkHandle =(e) =>{
+    const { name, value, checked } = e.target;
+
+    // if (name === 'checkboxes') {
+    //   // Update the checkboxes array in formData based on the checkbox changes
+    //   setFormData((checkFormData) => ({
+    //     ...checkFormData,
+    //     checkboxes: checked
+    //     ?[...checkFormData.checkboxes, value]
+    //     : checkFormData.checkboxes.filter((checkbox) => checkbox !== value)
+    //   }));      
+    // }  
+
+
+    let arr=formData.checkboxes;
+    if(checked){
+      arr.push(value);
+    }else{
+      arr=arr.filter(item=>item!==value)
+    }
+    setFormData({...formData,checkboxes:arr})
+    // console.log("valuecheckk",value,checked,arr)
+
+}
+
   const handleValue = (e) => {
-    // console.log("vall", e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -66,28 +92,26 @@ const Home = () => {
   };
 
   const displayData = (e) => {
-    e.preventDefault(e);
+    e.preventDefault();
     console.log("formData=>", formData);
     // console.log(valiDate())
-
-    // if(formData===" "){
-    //   console.log("formError")
-    // }
-
-    if (Object.keys(valiDate()).length === 0) {
-      // alert("Data submitted successfully :)");
+  
+    if (Object.keys(valiDate()).length === 0) { 
       toast.success("Data submitted successfully :)");
-      // navigae("/home")
-    } else {
-      // console.log("<erro></erro>r")
+      dispatch(addProduct(formData)); 
+      navigate("/product")
+    } else { 
       toast.error("error");
     }
+
+    
   };
 
   return (
     <>
-      <Navbar />
-      <Toaster />
+      {/* <Navbar /> */}
+      <Toaster /> 
+      <h1>Home</h1>
       <div
         className="form"
         style={{
@@ -330,10 +354,10 @@ const Home = () => {
               Check box
             </label>
             <div>
-              <input type="checkbox" value="checkbox1" name="checkboxes" onChange={handleValue} className="checkColor" /> check1
-              <input type="checkbox" value="checkbox2" name="checkboxes" onChange={handleValue} className="check checkColor" /> check2
-              <input type="checkbox" value="checkbox3" name="checkboxes" onChange={handleValue} className="check checkColor" /> check3
-              <input type="checkbox" value="checkbox4" name="checkboxes" onChange={handleValue} className="check checkColor" /> check4
+              <input type="checkbox" value="checkbox1" name="checkboxes" onChange={checkHandle} className="checkColor" /> check1
+              <input type="checkbox" value="checkbox2" name="checkboxes" onChange={checkHandle} className="check checkColor" /> check2
+              <input type="checkbox" value="checkbox3" name="checkboxes" onChange={checkHandle} className="check checkColor" /> check3
+              <input type="checkbox" value="checkbox4" name="checkboxes" onChange={checkHandle} className="check checkColor" /> check4
             </div>
             <span style={{ fontWeight: "bold", color: "red" }}>
               {formError.checkboxes}

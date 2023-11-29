@@ -1,3 +1,4 @@
+import toast, { Toaster } from "react-hot-toast";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import validator from "validator";
@@ -48,7 +49,7 @@ const Login = () => {
   };
 
   const checkValidation = (e) => {
-    e.preventDefault(e);
+    e.preventDefault();
     // console.log(validate());
     // console.log("obbkey",Object.keys(validate()),validate())
 
@@ -65,7 +66,7 @@ const Login = () => {
     // }.
 
     if(Object.keys(validate()).length===0){
-      alert("Data submitted successfully :)")
+      toast.success("Data submitted successfully :)")
       navigae("/home")
     }else{
       console.log("error")
@@ -83,6 +84,7 @@ const Login = () => {
   // console.log(checque)
   return (
     <>
+    <Toaster/>
       <h1>Login</h1>
       <div
         style={{ width: "300px", border: "1px solid #000", margin: "0 auto" }}

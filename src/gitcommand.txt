@@ -1,0 +1,7 @@
+echo "# git_command" >> README.md
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git branch -M master
+  git remote add origin https://github.com/GitGotVivek/git_command.git =>enter your repository url here
+  git push -u origin master

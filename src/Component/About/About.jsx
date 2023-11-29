@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 const About = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <h1>About</h1>
     </>
   );
