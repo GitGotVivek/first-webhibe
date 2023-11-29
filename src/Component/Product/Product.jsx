@@ -65,34 +65,45 @@ const Product = () => {
   const frmdat = product;
   console.log("frmdat", frmdat);
 
-  const data = [
-    {
-      id: 1,
-      catagory: product.catagory,
-      sub_catagory: product.sub_catagory,
-      business: product.business,
-      city: product.city,
-      product_price: product.product_price,
-      product_name: product.product_name,
-      color: product.color,
-      checkboxes: product?.checkboxes?.join(","),
-    }
-  ];
+  const data = frmdat.map((p)=>({
+    id: 1,
+      catagory: p.catagory,
+      sub_catagory: p.sub_catagory,
+      business: p.business,
+      city: p.city,
+      product_price: p.product_price,
+      product_name: p.product_name,
+      color: p.color,
+      checkboxes: p?.checkboxes?.join(","),
+  }));
+  //   [
+  //   {
+  //     id: 1,
+  //     catagory: product.catagory,
+  //     sub_catagory: product.sub_catagory,
+  //     business: product.business,
+  //     city: product.city,
+  //     product_price: product.product_price,
+  //     product_name: product.product_name,
+  //     color: product.color,
+  //     checkboxes: product?.checkboxes?.join(","),
+  //   }
+  // ];
   // console.log("dataaa",data)
   return (
     <>
       <h1>Product</h1>
       <DataTable columns={columns} data={data} />
-      {frmdat.map((fData) => {
+{/*       {frmdat.map((fData) => {
         return (
           <>
-          <DataTable data={data}>{fData?.catagory}</DataTable> 
+{/*           <DataTable data={data}>{fData?.catagory}</DataTable>  */}
           </>
         );
       })}
       
     </>
-  );
+  ); */}
 }; 
 
 export default Product;
